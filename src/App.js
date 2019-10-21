@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Beer from './Beer';
+import Beer from './Landing';
 
 
 function App() {
