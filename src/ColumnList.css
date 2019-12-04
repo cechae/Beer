@@ -1,0 +1,22 @@
+.section-column-list {
+    display: block;
+    height: auto;
+    flex-direction: row;
+    padding: 0 6%;
+}
+.column-ul {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: center;
+    list-style-type: none;
+}
+.item {
+    padding: 0 14px 54px;
+    width: 50%;
+    border-bottom: none;
+}
+.inside-item {
+    display: flex;
+    flex-direction: column;
+}

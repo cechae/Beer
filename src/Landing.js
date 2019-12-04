@@ -6,11 +6,10 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import InputGroup from 'react-bootstrap/InputGroup';
-
+import Header from './Header';
+import Footer from './Footer';
+import ColumnList from './ColumnList';
 
 import ImageSlider from './ImageSlider';
 import Featured from './Featured';
@@ -38,34 +37,11 @@ export default class Landing extends Component {
     render() {
         console.log(this.props)
 
-        return (
-                                                                                                                                  
+        return (                                                                             
             <div className="page-content">
                 <div className="top-container">
                 <div className="navbar">
-                    <Navbar collapseOnSelect expand="lg" variant="light">
-                        <Navbar.Brand href="#home">BeerShop</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                        <Navbar.Collapse id="responsive-navbar-nav">
-                            <Nav className="mr-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown>
-                            </Nav>
-                            <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
-                            </Nav.Link>
-                            </Nav>
-                        </Navbar.Collapse>
-                        </Navbar>
+                    <Header />
                     </div>
                     <div className="contents">
                     </div>
@@ -84,14 +60,7 @@ export default class Landing extends Component {
                                 </Form.Control>
                                 <Link to={`/searchResult/${this.state.searchQuery}`}> <i className="fas fa-search searchIcon"></i> </Link>
                             </Form>
-                            {/* <input
-                                type="text"
-                                value={this.state.searchQuery}
-                                onChange={(e) => this.handleChange(e)}
-                                placeholder="Search for a beer here">
-                            </input>
-                            <Link to={`/searchResult/${this.state.searchQuery}`}> <i className="fas fa-search searchIcon"></i> </Link> */}
-
+                            
                         </div>
                     </div>
                     
@@ -100,9 +69,7 @@ export default class Landing extends Component {
                 
                 <ImageSlider />
                 <Featured />
-               
-
-
+                <Footer />
             </div>
         )
     }
