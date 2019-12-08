@@ -1,15 +1,8 @@
 
 import React, {Component} from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Header from './Header';
 import Footer from './Footer';
-import ColumnList from './ColumnList';
 
 import ImageSlider from './ImageSlider';
 import Featured from './Featured';
@@ -25,8 +18,8 @@ export default class Landing extends Component {
         }
     }
     onSubmitSearch = (e) => {
-        window.location = `/searchResult/${this.state.searchQuery}`
-
+        console.log(this.state.searchQuery)
+        //window.location.assign(`/searchResult/${this.state.searchQuery}`)
     }
 
     handleChange = (e) => {
@@ -50,7 +43,12 @@ export default class Landing extends Component {
                             <h4> BeerShop </h4>
                         </div>
                         <div className="search-bar">
-                            <Form style={{display: "flex"}} onSubmit={(e) => this.onSubmitSearch(e)}>
+                            <Form style={{display: "flex"}} 
+                                //   onSubmit={(e) => this.onSubmitSearch(e)}
+                                //   onSubmit = { () => {window.location.assign(`/searchResult/s=${this.state.searchQuery==''?'':this.state.searchQuery}`); return false}}
+                                //   onSubmit={(e) => this.onSubmitSearch(e)}
+                                onSubmit = {(e) => {e.preventDefault(); window.location = `/searchResult/s=${this.state.searchQuery===''?'':this.state.searchQuery}`}}
+                                  >
                                 <Form.Control 
                                     placeholder="Search" 
                                     type="text" 
@@ -58,7 +56,7 @@ export default class Landing extends Component {
                                     onChange={e=>this.handleChange(e)}>
                                     
                                 </Form.Control>
-                                <Link to={`/searchResult/${this.state.searchQuery}`}> <i className="fas fa-search searchIcon"></i> </Link>
+                                <Link onClick={() => {window.location = `/searchResult/s=${this.state.searchQuery===''?'':this.state.searchQuery}`}}> <i className="fas fa-search searchIcon"></i> </Link>
                             </Form>
                             
                         </div>

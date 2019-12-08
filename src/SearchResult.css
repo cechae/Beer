@@ -1,0 +1,11 @@
+.result-container {
+    display: flex;
+}
+.result-container .filter-box {
+    width: 20%;
+    border: 1px solid burlywood;
+}
+.result-container .content-box {
+    width: 80%;
+
+}
