@@ -93,6 +93,7 @@ class SearchResult extends React.Component {
                     <div className="filter-box">
                         <div className="filter">
                             
+
                         </div>
 
                     </div>
@@ -101,7 +102,6 @@ class SearchResult extends React.Component {
                     </div>
 
                 </div>
-
 
             </div>
         )
