@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
 
-const ImageSlider = () => {
+export default class ImageSlider extends Component {
+    goToSearchResult = () => {
+        window.location = `/searchResult/shop`;
+    }
+    render() {
         return (
             <div className="img-slider">
                     <Carousel>
@@ -28,7 +33,7 @@ const ImageSlider = () => {
                                     <h2>20% OFF SITEWIDE</h2>
                                     <p>Celebrate the season with 20% off all online orders.</p>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
+                                    <Button variant="warning" onClick={() => this.goToSearchResult()}>Shop Now</Button>
                                 </div>
                             
                             </Carousel.Caption>
@@ -49,6 +54,6 @@ const ImageSlider = () => {
                 </div>
 
         )
+    }
 
 }
-export default ImageSlider;
