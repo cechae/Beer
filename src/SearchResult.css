@@ -9,3 +9,8 @@
     width: 80%;
 
 }
+#logo {
+    background: none !important;
+    border: none;
+    color: #212529;
+}
