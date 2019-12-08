@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './Header';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
+
+import Button from 'react-bootstrap/Button';
 import "./SearchResult.css";
 
 
@@ -32,6 +34,9 @@ class SearchResult extends React.Component {
                 this.setState({ hits: data })
             }
         });
+    }
+    goToMain = () => {
+        window.location('/')
     }
     componentDidMount() {
         
@@ -71,8 +76,9 @@ class SearchResult extends React.Component {
                 </div>
                 <div className="search-bar-container">
                         <div className="logo">
-                            <h4> BeerShop </h4>
+                            <Button id="logo" onClick={() => window.location = '/'}> <h4> BeerShop </h4> </Button>
                         </div>
+
                         <div className="search-bar">
                             <Form style={{display: "flex"}} 
                             onSubmit={(e) => {e.preventDefault(); window.location = `/searchResult/s=${this.state.input===''?'':this.state.input}`}}
