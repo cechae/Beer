@@ -1,5 +1,6 @@
 .result-container {
     display: flex;
+    border-top: 1px solid darkgray;
 }
 .result-container .filter-box {
     width: 20%;
@@ -13,4 +14,13 @@
     background: none !important;
     border: none;
     color: #212529;
+}
+.content-box .single-container:hover {
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.content-box .item-container {
+    display: flex;
+    flex-wrap: wrap;
 }
