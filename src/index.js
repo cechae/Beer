@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import BeerDetail from './BeerDetail';
 import Cart from './Cart';
 import SearchResult from './SearchResult';
+import Item from './Item';
 
 
 const routing = (
@@ -18,7 +19,7 @@ const routing = (
             <Route exact path="/mycart" component={Cart} />
             <Route exact path="/detail" component={BeerDetail} />
             <Route exact path="/searchResult/:searchQuery" component={SearchResult} />
-
+            <Route exact path="/item/:id" component={Item} />
 
         </div>
     </Router>

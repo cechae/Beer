@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-
+import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import "./SearchResult.css";
 
@@ -38,6 +38,9 @@ class SearchResult extends React.Component {
     goToMain = () => {
         window.location('/')
     }
+    goToItem = (id) => {
+        window.location(`/item/${id}`);
+    }
     componentDidMount() {
         
         let query = this.props.match.params.searchQuery.substring(2);
@@ -55,24 +58,21 @@ class SearchResult extends React.Component {
     render() {
         let resBeers = this.state.hits.map(i => {
             return (
-                <div className="single-container">
+                <div className="single-container" key={i.id} id={i.id} onClick={() => window.location = `/item/${i.id}`}>
                     <div className='img-box'>
                         <img src={i.image_url} alt="img" />
                     </div>
                     <div className="desc-box">
                         <h4> {i.name} </h4>
+                        <p> {i.tagline} </p>
                     </div>
                 </div>
             );
         })
-
-
-
         return(
             <div className="search-result">
                 <div className="nav">
                     <Header />
-
                 </div>
                 <div className="search-bar-container">
                         <div className="logo">
@@ -103,8 +103,15 @@ class SearchResult extends React.Component {
                         </div>
 
                     </div>
-                    <div className="content-box">
-                        {resBeers}
+                    <div className="content-box" style={{display: "flex"}}>
+                        <div className="num-result">
+                            <Badge variant="success">Results found: {this.state.hits.length}</Badge>
+                            
+                        </div>
+                        <div className='item-container'>
+                            {resBeers}
+                        </div>
+                        
                     </div>
 
                 </div>

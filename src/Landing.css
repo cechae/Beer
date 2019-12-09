@@ -27,8 +27,8 @@
 }
 .single-container {
     display: flex;
-    padding: 4% 8%;
-    max-width: 248px;
+    padding: 4% 2%;
+    width: 330px;
 }
 
 .img-box {
