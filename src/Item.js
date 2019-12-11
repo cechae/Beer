@@ -3,6 +3,8 @@ import Header from './Header';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import './Item.css';
+
 
 const API = 'https://api.punkapi.com/v2/beers';
 
@@ -13,6 +15,7 @@ export default class Item extends Component {
             hits: [],
             input: "shop",
             isNoResult: false,
+            appIsMounted: false,
         }
     }
     handleChange = async (e) => {
@@ -31,44 +34,57 @@ export default class Item extends Component {
        
         fetch(modifiedAPI)
             .then(response => response.json())
-            .then(data => this.setState({ hits: data }));
+            .then(data => this.setState({ hits: data, appIsMounted: true }));
         
     }
 
     render() {
+        
+
+
         return (
             <div className="page-content">
-                <div className="nav">
-                    <Header />
-                </div>
-                <div className="search-bar-container">
-                        <div className="logo">
-                            <Button id="logo" onClick={() => window.location = '/'}> <h4> BeerShop </h4> </Button>
+                {this.state.appIsMounted &&
+                    <div>
+                        <div className="nav">
+                            <Header />
+                        </div>
+                        <div className="search-bar-container">
+                                <div className="logo">
+                                    <Button id="logo" onClick={() => window.location = '/'}> <h4> BeerShop </h4> </Button>
+                                </div>
+
+                                <div className="search-bar">
+                                    <Form style={{display: "flex"}} 
+                                    onSubmit={(e) => {e.preventDefault(); window.location = `/searchResult/s=${this.state.input===''?'':this.state.input}`}}
+                                    >
+                                        <Form.Control 
+                                            placeholder="Search" 
+                                            type="text" 
+                                            value={this.state.searchQuery} 
+                                            onChange={e=>this.handleChange(e)}>
+                                            
+                                        </Form.Control>
+                                        <Link onClick={() => {window.location = `/searchResult/s=${this.state.input===''?'':this.state.input}`}}> <i className="fas fa-search searchIcon"></i> </Link>
+                                    </Form>
+                                </div>
                         </div>
 
-                        <div className="search-bar">
-                            <Form style={{display: "flex"}} 
-                            onSubmit={(e) => {e.preventDefault(); window.location = `/searchResult/s=${this.state.input===''?'':this.state.input}`}}
-                            >
-                                <Form.Control 
-                                    placeholder="Search" 
-                                    type="text" 
-                                    value={this.state.searchQuery} 
-                                    onChange={e=>this.handleChange(e)}>
-                                    
-                                </Form.Control>
-                                <Link onClick={() => {window.location = `/searchResult/s=${this.state.input===''?'':this.state.input}`}}> <i className="fas fa-search searchIcon"></i> </Link>
-                            </Form>
+                        <div className="item-container">
+                            <div className="img-container">
+                                <img src={this.state.hits[0].image_url} />
+
+
+                            </div>
+                            <div className="desc-container">
+
+                            </div>
+
                         </div>
-                </div>
 
-                <div className="item-container">
-                    
-                </div>
-
-
-
-            </div>
+                    </div> 
+                }
+            </div> // page-content div
         )
         
     }
