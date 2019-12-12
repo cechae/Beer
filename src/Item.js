@@ -80,6 +80,13 @@ export default class Item extends Component {
                                 <div className="title">
                                     {this.state.hits[0]['name']}
                                 </div>
+                                <div className="tagline">
+                                    {this.state.hits[0]['tagline']}
+                                </div>
+                                <div>First Brewed: {this.state.hits[0]['first_brewed']}</div>
+                                
+                                <div>Description: {this.state.hits[0]['description']} </div>
+                                <div>ABV: {this.state.hits[0]['abv']} </div>
 
                             </div>
 
