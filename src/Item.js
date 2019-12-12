@@ -77,6 +77,9 @@ export default class Item extends Component {
 
                             </div>
                             <div className="desc-container">
+                                <div className="title">
+                                    {this.state.hits[0]['name']}
+                                </div>
 
                             </div>
 
