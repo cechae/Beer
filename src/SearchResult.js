@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import "./SearchResult.css";
+import ReactPaginate from 'react-paginate';
 
 
 const API = 'https://api.punkapi.com/v2/beers';
@@ -14,15 +15,29 @@ class SearchResult extends React.Component {
         super(props);
         this.state = {
             hits: [],
+            limit: 10,
             input: "shop",
             isNoResult: false,
+            offset: 0,
         }
     }
     handleChange = async (e) => {
-        console.log(e.target.value);
         await this.setState({ input: e.target.value})
 
     }
+
+
+
+    handlePageClick = data => {
+        console.log(data.selected)
+        let selected = data.selected;
+        let offset = Math.ceil(selected * this.props.perPage);
+        this.setState({ offset: offset }, () => {
+        this.loadCommentsFromServer();
+        });
+    };
+
+
 
     search = async (input) => {
         console.log(input)
@@ -31,7 +46,10 @@ class SearchResult extends React.Component {
             if (data.length === 0) {
                 this.setState({ hits: data, isNoResult: true})
             }else {
-                this.setState({ hits: data })
+                console.log(data)
+                this.setState({ 
+                    hits: data,
+                    pageCount: Math.ceil(data.length / this.state.limit), })
             }
         });
     }
@@ -46,10 +64,17 @@ class SearchResult extends React.Component {
         let query = this.props.match.params.searchQuery.substring(2);
         console.log("inputSearchQuery was: " + query);
 
-        if (query === "shop") { // when the page loads for the first time
-            fetch(API)
+        if (query === "shop") { // when the page loads for the first time, load the first 80.
+            let allSearchAPI = `${API}?per_page=80`;
+            fetch(allSearchAPI)
             .then(response => response.json())
-            .then(data => this.setState({ hits: data }));
+            .then(data => {
+                console.log(data)
+                this.setState({
+                  hits: data,
+                  pageCount: Math.ceil(data.length / this.state.limit),
+                })}
+            );
         } else { // when there is an user input
             console.log(query);
             this.search(query);
@@ -111,7 +136,21 @@ class SearchResult extends React.Component {
                         </div>
                         <div className='item-container'>
                             {resBeers}
+                            <ReactPaginate
+                                previousLabel={'previous'}
+                                nextLabel={'next'}
+                                breakLabel={'...'}
+                                breakClassName={'break-me'}
+                                pageCount={this.state.pageCount}
+                                marginPagesDisplayed={2}
+                                pageRangeDisplayed={5}
+                                onPageChange={this.handlePageClick}
+                                containerClassName={'pagination'}
+                                subContainerClassName={'pages pagination'}
+                                activeClassName={'active'}
+                            />
                         </div>
+
                         
                     </div>
 

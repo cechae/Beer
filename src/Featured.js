@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 export default class Featured extends Component {
     goToSearchResult = () => {
-        window.location = `/searchResult/shop`;
+        window.location = `/searchResult/s=shop`;
     }
     render () {
         return (
