@@ -22,6 +22,9 @@
 .App-link {
   color: #61dafb;
 }
+#header {
+  background-color: rgba(240,240,240,.6);
+}
 
 @keyframes App-logo-spin {
   from {

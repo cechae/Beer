@@ -4,11 +4,15 @@
 }
 .result-container .filter-box {
     width: 20%;
-    border: 1px solid burlywood;
+    border-right: 1px solid burlywood;
 }
 .result-container .content-box {
-    width: 80%;
+    width: 100%;
 
+}
+.num-result .badge {
+    margin-left: 8px;
+    margin-top: 8px;
 }
 #logo {
     background: none !important;

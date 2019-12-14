@@ -1,6 +1,4 @@
-.page-content {
-    font-family: 'Montserrat', sans-serif;
-}
+
 .top-container {
     padding: 0;
 }
@@ -29,6 +27,7 @@
     display: flex;
     padding: 4% 2%;
     width: 330px;
+    margin-right: 24px;
 }
 
 .img-box {
