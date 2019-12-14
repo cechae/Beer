@@ -31,25 +31,40 @@ class SearchResult extends React.Component {
     handlePageClick = data => {
         console.log(data.selected)
         let selected = data.selected;
-        let offset = Math.ceil(selected * this.props.perPage);
+        let offset = Math.ceil(selected * this.state.limit);
         this.setState({ offset: offset }, () => {
-        this.loadCommentsFromServer();
+            if (this.state.input==='shop') {
+                this.loadData();
+            } else {
+                this.search(this.state.input)
+            }
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'auto'
+            });
+
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+       
         });
     };
 
 
 
     search = async (input) => {
-        console.log(input)
         let modifiedAPI = `${API}?beer_name=${input}`;
         fetch(modifiedAPI).then(response => response.json()).then(data => {
             if (data.length === 0) {
-                this.setState({ hits: data, isNoResult: true})
+                this.setState({ hits: data, isNoResult: true, pageCount:1, currPageData: []})
             }else {
                 console.log(data)
+                let arr= [...data];
+                let ans = arr.slice(this.state.offset,this.state.offset+10);
                 this.setState({ 
                     hits: data,
-                    pageCount: Math.ceil(data.length / this.state.limit), })
+                    pageCount: Math.ceil(data.length / this.state.limit), 
+                    currPageData: ans,
+                })
             }
         });
     }
@@ -59,41 +74,59 @@ class SearchResult extends React.Component {
     goToItem = (id) => {
         window.location(`/item/${id}`);
     }
+
+    // I need to get the 0-9 items
+    loadData = () => {
+        console.log('noooo')
+        let allSearchAPI = `${API}?per_page=80`;
+            fetch(allSearchAPI)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                let arr= [...data];
+                let ans = arr.slice(this.state.offset,this.state.offset+10);
+                this.setState({
+                  hits: data,
+                  pageCount: Math.ceil(data.length / this.state.limit),
+                  currPageData: ans,
+            })}
+        );
+    }
+
+
     componentDidMount() {
         
         let query = this.props.match.params.searchQuery.substring(2);
         console.log("inputSearchQuery was: " + query);
+        this.setState({input: query})
 
         if (query === "shop") { // when the page loads for the first time, load the first 80.
-            let allSearchAPI = `${API}?per_page=80`;
-            fetch(allSearchAPI)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                this.setState({
-                  hits: data,
-                  pageCount: Math.ceil(data.length / this.state.limit),
-                })}
-            );
+            this.loadData();
         } else { // when there is an user input
             console.log(query);
             this.search(query);
         }
     }
     render() {
-        let resBeers = this.state.hits.map(i => {
-            return (
-                <div className="single-container" key={i.id} id={i.id} onClick={() => window.location = `/item/${i.id}`}>
-                    <div className='img-box'>
-                        <img src={i.image_url} alt="img" />
+        let resBeers;
+        if (this.state.currPageData) {
+            resBeers = this.state.currPageData.map(i => {
+                return (
+                    <div className="single-container" key={i.id} id={i.id} onClick={() => window.location = `/item/${i.id}`}>
+                        <div className='img-box'>
+                            <img src={i.image_url} alt="img" />
+                        </div>
+                        <div className="desc-box">
+                            <h4> {i.name} </h4>
+                            <p> {i.tagline} </p>
+                            <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                        </div>
                     </div>
-                    <div className="desc-box">
-                        <h4> {i.name} </h4>
-                        <p> {i.tagline} </p>
-                    </div>
-                </div>
-            );
-        })
+                );
+            })
+
+        }
+        
         return(
             <div className="search-result">
                 <div className="nav">
@@ -106,12 +139,12 @@ class SearchResult extends React.Component {
 
                         <div className="search-bar">
                             <Form style={{display: "flex"}} 
-                            onSubmit={(e) => {e.preventDefault(); window.location = `/searchResult/s=${this.state.input===''?'':this.state.input}`}}
+                            onSubmit={(e) => {e.preventDefault(); window.location = `/searchResult/s=${this.state.input===''?'shop':this.state.input}`}}
                             >
                                 <Form.Control 
                                     placeholder="Search" 
                                     type="text" 
-                                    value={this.state.searchQuery} 
+                                    value={this.state.input} 
                                     onChange={e=>this.handleChange(e)}>
                                     
                                 </Form.Control>
@@ -124,18 +157,18 @@ class SearchResult extends React.Component {
                     <div className="filter-box">
                         <div className="filter">
                             
-
                         </div>
 
                     </div>
                     <div className="content-box" style={{display: "flex"}}>
                         <div className="num-result">
-                            {this.state.input!=='shop'?
-                                <Badge variant="success">Results found: {this.state.hits.length}</Badge>
-                            : ""}
+                            <Badge variant="success">Results found: {this.state.hits.length}</Badge>
                         </div>
                         <div className='item-container'>
                             {resBeers}
+                           
+                        </div>
+                        <div className="pagination-div">
                             <ReactPaginate
                                 previousLabel={'previous'}
                                 nextLabel={'next'}
@@ -149,7 +182,9 @@ class SearchResult extends React.Component {
                                 subContainerClassName={'pages pagination'}
                                 activeClassName={'active'}
                             />
+
                         </div>
+                       
 
                         
                     </div>

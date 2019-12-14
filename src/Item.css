@@ -17,7 +17,10 @@
 }
 .tagline {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+}
+.stars {
+    margin-bottom: 8px;
 }
 
 #heading {
