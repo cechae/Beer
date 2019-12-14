@@ -118,8 +118,9 @@ class SearchResult extends React.Component {
                         </div>
                         <div className="desc-box">
                             <h4> {i.name} </h4>
-                            <p> {i.tagline} </p>
+                            <p style={{marginBottom:'0px'}}> {i.tagline} </p>
                             <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            <p> ABV: {i.abv} </p>
                         </div>
                     </div>
                 );
@@ -184,13 +185,8 @@ class SearchResult extends React.Component {
                             />
 
                         </div>
-                       
-
-                        
                     </div>
-
                 </div>
-
             </div>
         )
     }
