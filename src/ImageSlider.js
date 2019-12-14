@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 export default class ImageSlider extends Component {
     goToSearchResult = () => {
-        window.location = `/searchResult/shop`;
+        window.location = `/searchResult/s=shop`;
     }
     render() {
         return (

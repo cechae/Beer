@@ -24,8 +24,8 @@ const Header = () => {
 
                 </Nav>
                 <Nav>
-                    <Nav.Link eventKey={2} href="#memes">
-                        Dank memes
+                    <Nav.Link eventKey={2} href="https://punkapi.com/documentation/v2">
+                        Punk API docs
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
