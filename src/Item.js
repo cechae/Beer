@@ -39,6 +39,29 @@ export default class Item extends Component {
     }
 
     render() {
+
+        let ingredients = [];
+        let ingObj = this.state.hits[0];
+        console.log(ingObj)
+        if (ingObj) {
+            ingObj = ingObj['ingredients']
+            console.log(ingObj)
+            // loop thru ingredients array and add to ingredients array
+            let keys = Object.keys(ingObj);
+            for (const key of keys) {
+                let val = ingObj[key];
+                if (typeof val == 'string') {
+                    ingredients.push(val)
+                } else {
+                    console.log(val)
+                    for (let i = 0; i < val.length; i++) {
+                        ingredients.push(val[i].name);
+                    }
+                }
+            }
+            ingredients = [...new Set(ingredients)]; 
+            console.log(ingredients)
+        }
         
 
 
@@ -83,11 +106,25 @@ export default class Item extends Component {
                                 <div className="tagline">
                                     {this.state.hits[0]['tagline']}
                                 </div>
-                                <div>First Brewed: {this.state.hits[0]['first_brewed']}</div>
+                                <div><span id="heading">First Brewed: </span> {this.state.hits[0]['first_brewed']}</div>
                                 
-                                <div>Description: {this.state.hits[0]['description']} </div>
-                                <div>ABV: {this.state.hits[0]['abv']} </div>
-
+                                <div><span id="heading">Description: </span> {this.state.hits[0]['description']} </div>
+                                <div><span id="heading">ABV: </span> {this.state.hits[0]['abv']} </div>
+                                <div><span id="heading">Ingredients: </span> 
+                                    <ul>
+                                        {ingredients.map((i,idx) => 
+                                            <li>{i}</li>
+                                        )} 
+                                    </ul>
+                                </div>
+                               
+                                <div><span id="heading">Food Pairing: </span> 
+                                    <ul>
+                                        {this.state.hits[0]['food_pairing'].map(i =>
+                                            <li>{i}</li>
+                                        )} 
+                                    </ul>
+                                </div>
                             </div>
 
                         </div>

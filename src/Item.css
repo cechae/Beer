@@ -4,10 +4,26 @@
 }
 
 .img-container {
-    padding-right: 24px;
+    margin-right: 72px;
     width: 40%;
 }
 .img-container img {
     height: 500px;
 
+}
+.desc-container .title {
+    font-size: 32px;
+    font-weight: 700;
+}
+.tagline {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#heading {
+    font-weight: 600;
+}
+#food-pairing {
+    margin-left:10px;
+    margin-bottom: 0;
 }
