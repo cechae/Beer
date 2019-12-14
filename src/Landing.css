@@ -27,6 +27,7 @@
     display: flex;
     padding: 4% 2%;
     width: 330px;
+    margin-right: 24px;
 }
 
 .img-box {

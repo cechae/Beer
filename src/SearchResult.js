@@ -15,7 +15,7 @@ class SearchResult extends React.Component {
         super(props);
         this.state = {
             hits: [],
-            limit: 10,
+            limit: 12,
             input: "shop",
             isNoResult: false,
             offset: 0,
@@ -59,7 +59,7 @@ class SearchResult extends React.Component {
             }else {
                 console.log(data)
                 let arr= [...data];
-                let ans = arr.slice(this.state.offset,this.state.offset+10);
+                let ans = arr.slice(this.state.offset,this.state.offset+12);
                 this.setState({ 
                     hits: data,
                     pageCount: Math.ceil(data.length / this.state.limit), 
@@ -84,7 +84,7 @@ class SearchResult extends React.Component {
             .then(data => {
                 console.log(data);
                 let arr= [...data];
-                let ans = arr.slice(this.state.offset,this.state.offset+10);
+                let ans = arr.slice(this.state.offset,this.state.offset+12);
                 this.setState({
                   hits: data,
                   pageCount: Math.ceil(data.length / this.state.limit),
@@ -145,7 +145,7 @@ class SearchResult extends React.Component {
                                 <Form.Control 
                                     placeholder="Search" 
                                     type="text" 
-                                    value={this.state.input} 
+                                    value={this.state.input!=='shop'?this.state.input:''} 
                                     onChange={e=>this.handleChange(e)}>
                                     
                                 </Form.Control>
@@ -155,12 +155,10 @@ class SearchResult extends React.Component {
                 </div>
 
                  <div className="result-container">
-                    <div className="filter-box">
+                    {/* <div className="filter-box">
                         <div className="filter">
-                            
                         </div>
-
-                    </div>
+                    </div> */}
                     <div className="content-box" style={{display: "flex"}}>
                         <div className="num-result">
                             <Badge variant="success">Results found: {this.state.hits.length}</Badge>
