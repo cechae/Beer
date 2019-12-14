@@ -105,8 +105,9 @@ class SearchResult extends React.Component {
                     </div>
                     <div className="content-box" style={{display: "flex"}}>
                         <div className="num-result">
-                            <Badge variant="success">Results found: {this.state.hits.length}</Badge>
-                            
+                            {this.state.input!=='shop'?
+                                <Badge variant="success">Results found: {this.state.hits.length}</Badge>
+                            : ""}
                         </div>
                         <div className='item-container'>
                             {resBeers}

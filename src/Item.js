@@ -59,8 +59,8 @@ export default class Item extends Component {
                     }
                 }
             }
-            ingredients = [...new Set(ingredients)]; 
-            console.log(ingredients)
+            ingredients = [...new Set(ingredients)];  //remove duplicates
+            console.log(ingredients) 
         }
         
 
