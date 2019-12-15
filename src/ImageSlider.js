@@ -32,7 +32,7 @@ export default class ImageSlider extends Component {
                                 <div className="dark-filter">
                                     <h2>20% OFF SITEWIDE</h2>
                                     <p>Celebrate the season with 20% off all online orders.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
                                     <Button variant="warning" onClick={() => this.goToSearchResult()}>Shop Now</Button>
                                 </div>
                             

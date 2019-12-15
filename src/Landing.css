@@ -57,7 +57,7 @@
     padding: 0;
 }
 .carousel-caption h2 {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     font-weight: 700;
     letter-spacing: 0.8rem;
 }
@@ -107,4 +107,34 @@
     font-size: 32px;
     line-height: 1.2 !important;
     margin-left: 1rem;
+}
+
+@media (max-width: 767px) {
+    .carousel-caption {
+        top: 30%;
+    }
+    .carousel-caption p {
+        margin-bottom: 0;
+    }
+    .carousel-caption h2 {
+        margin-bottom: 16px;
+    }
+    .search-bar {
+        padding: 0 7% 0 0;
+    }
+    .img-container {
+        margin-right: 0;
+    }
+    .featured .text-container .text-box {
+        margin: 0 5%;
+        padding: 10% 0px;
+    }
+    .featured .flexbox {
+        flex-direction: column;
+    }
+    .content-box img {
+        width: 80px;
+        max-height: 160px;
+    }
+    
 }

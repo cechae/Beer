@@ -149,7 +149,7 @@ class SearchResult extends React.Component {
                                     onChange={e=>this.handleChange(e)}>
                                     
                                 </Form.Control>
-                                <Link onClick={() => {window.location = `/searchResult/s=${this.state.input===''?'':this.state.input}`}}> <i className="fas fa-search searchIcon"></i> </Link>
+                                <Link onClick={() => {window.location = `/searchResult/s=${this.state.input===''?'shop':this.state.input}`}}> <i className="fas fa-search searchIcon"></i> </Link>
                             </Form>
                         </div>
                 </div>

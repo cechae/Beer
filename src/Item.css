@@ -30,3 +30,23 @@
     margin-left:10px;
     margin-bottom: 0;
 }
+@media (max-width: 767px) {
+    .img-container img {
+        height: 200px;
+    }
+    .img-container {
+        width: 40%;
+        margin-right: 32px;
+        margin-left: 12px;
+    }
+    .item-container {
+        padding: 4%;
+        display: flex;
+    }
+    .tagline {
+        font-size: 20px;
+    }
+    .small-txt {
+        font-size: 14px;
+    }
+}
