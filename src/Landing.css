@@ -122,8 +122,9 @@
     .search-bar {
         padding: 0 7% 0 0;
     }
-    .img-container {
+    .flexbox .img-container {
         margin-right: 0;
+        margin-left: 0;
     }
     .featured .text-container .text-box {
         margin: 0 5%;
@@ -135,6 +136,11 @@
     .content-box img {
         width: 80px;
         max-height: 160px;
+    }
+    .featured .img-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
     
 }

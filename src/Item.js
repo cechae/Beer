@@ -16,6 +16,7 @@ export default class Item extends Component {
             input: "shop",
             isNoResult: false,
             appIsMounted: false,
+            viewportWidth: null,
         }
     }
     handleChange = async (e) => {
@@ -25,6 +26,7 @@ export default class Item extends Component {
     }
 
     componentDidMount() {
+        this.setState({viewportWidth: window.screen.availWidth});
         
         let itemId = this.props.match.url.substring(6);
         console.log("item id: " + itemId);
@@ -99,6 +101,7 @@ export default class Item extends Component {
 
 
                             </div>
+                            {this.state.viewportWidth>767 ?  // Desktop
                             <div className="desc-container">
                                 <div className="title">
                                     {this.state.hits[0]['name']}
@@ -114,28 +117,71 @@ export default class Item extends Component {
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
                                 </div>
-                                <div className="small-txt"><span id="heading"> First Brewed: </span> {this.state.hits[0]['first_brewed']}</div>
-                                <div className="small-txt"><span id="heading"> Description: </span> {this.state.hits[0]['description']} </div>
-                                <div className="small-txt"><span id="heading"> ABV: </span> {this.state.hits[0]['abv']} </div>
-                                <div className="small-txt"><span id="heading"> Ingredients: </span> 
+
+                                <div className="text-div">
+
+                                    <div className="small-txt"><span id="heading"> First Brewed: </span> {this.state.hits[0]['first_brewed']}</div>
+                                    <div className="small-txt"><span id="heading"> Description: </span> {this.state.hits[0]['description']} </div>
+                                    <div className="small-txt"><span id="heading"> ABV: </span> {this.state.hits[0]['abv']} </div>
+                                    <div className="small-txt"><span id="heading"> Ingredients: </span> </div>
                                     <ul>
                                         {ingredients.map((i,idx) => 
                                             <li>{i}</li>
                                         )} 
                                     </ul>
                                 </div>
-                               
+                            
                                 <div className="small-txt"><span id="heading">Food Pairing: </span> 
                                     <ul>
-                                        {this.state.hits[0]['food_pairing'].map(i =>
-                                            <li>{i}</li>
+                                    {this.state.hits[0]['food_pairing'].map(i =>
+                                        <li>{i}</li>
                                         )} 
                                     </ul>
                                 </div>
                             </div>
-
+                            :   // mobile
+                            <div>
+                                <div className="desc-container">
+                                    <div className="title">
+                                        {this.state.hits[0]['name']}
+                                    </div>
+                                    <div className="tagline">
+                                        {this.state.hits[0]['tagline']}
+                                        
+                                    </div>
+                                    <div className="stars">
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                
+                            </div>}
+                            
                         </div>
+                        {this.state.viewportWidth<=767 && <div>
+                            <div className="text-div">
+                                <div className="small-txt"><span id="heading"> First Brewed: </span> {this.state.hits[0]['first_brewed']}</div>
+                                <div className="small-txt"><span id="heading"> Description: </span> {this.state.hits[0]['description']} </div>
+                                <div className="small-txt"><span id="heading"> ABV: </span> {this.state.hits[0]['abv']} </div>
+                                <div className="small-txt"><span id="heading"> Ingredients: </span> </div>
+                                <ul>
+                                    {ingredients.map((i,idx) => 
+                                        <li>{i}</li>
+                                    )} 
+                                </ul>
+                            </div>
 
+                            <div className="small-txt-div"><span id="heading">Food Pairing: </span> 
+                                <ul>
+                                {this.state.hits[0]['food_pairing'].map(i =>
+                                    <li>{i}</li>
+                                    )} 
+                                </ul>
+                            </div>
+                        </div>}
                     </div> 
                 }
             </div> // page-content div
