@@ -61,3 +61,33 @@
     color: #c45500;
     border-color: #e77600;
 }
+
+@media (max-width: 767px) { 
+    .content-box .item-container {
+        padding: 8%;
+    }
+    .single-container {
+        width: auto;
+        padding: 0;
+        margin-bottom: 32px;
+        margin-right: 0;
+    }
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 5px;
+    }
+    .pagination-div {
+        width: 100%;
+        padding-left: 0;
+        margin-bottom: 16px;
+    }
+    
+    .pagination-div li {
+        margin: 8px 4px;
+    }
+    
+
+
+
+}

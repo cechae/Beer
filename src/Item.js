@@ -107,13 +107,17 @@ export default class Item extends Component {
                                     {this.state.hits[0]['tagline']}
                                     
                                 </div>
-                                <div className="stars"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                        
-                                <div><span id="heading">First Brewed: </span> {this.state.hits[0]['first_brewed']}</div>
-                                
-                                <div><span id="heading">Description: </span> {this.state.hits[0]['description']} </div>
-                                <div><span id="heading">ABV: </span> {this.state.hits[0]['abv']} </div>
-                                <div><span id="heading">Ingredients: </span> 
+                                <div className="stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div className="small-txt"><span id="heading"> First Brewed: </span> {this.state.hits[0]['first_brewed']}</div>
+                                <div className="small-txt"><span id="heading"> Description: </span> {this.state.hits[0]['description']} </div>
+                                <div className="small-txt"><span id="heading"> ABV: </span> {this.state.hits[0]['abv']} </div>
+                                <div className="small-txt"><span id="heading"> Ingredients: </span> 
                                     <ul>
                                         {ingredients.map((i,idx) => 
                                             <li>{i}</li>
@@ -121,7 +125,7 @@ export default class Item extends Component {
                                     </ul>
                                 </div>
                                
-                                <div><span id="heading">Food Pairing: </span> 
+                                <div className="small-txt"><span id="heading">Food Pairing: </span> 
                                     <ul>
                                         {this.state.hits[0]['food_pairing'].map(i =>
                                             <li>{i}</li>
