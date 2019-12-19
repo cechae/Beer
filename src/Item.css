@@ -37,6 +37,9 @@
     .img-container img {
         height: 200px;
     }
+    .text-div ul {
+        font-size: 14px;
+    }
     .img-container {
         width: auto;
         margin-right: 24px;
