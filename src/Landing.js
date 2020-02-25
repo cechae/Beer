@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Header from './Header';
 import Footer from './Footer';
 
+
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import ImageSlider from './ImageSlider';
 import Featured from './Featured';
 import {Link} from 'react-router-dom';
@@ -37,13 +40,16 @@ export default class Landing extends Component {
             <span className="site-heading-upper text-primary mb-3"></span>
             <span className="site-heading-lower">Online BeerShop</span>
             </h1>
+
+
+{/* 
             <nav className="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div className="container">
-                <a className="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <a className="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Online BeerShop</a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTarget" aria-controls="navbarTarget" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" />
                 </button>
-                <div className="collapse navbar-collapse" id="navbarResponsive">
+                <div className="collapse navbar-collapse" id="navbarTarget">
                 <ul className="navbar-nav mx-auto">
                     <li className="nav-item active px-lg-4">
                     <a className="nav-link text-uppercase text-expanded" href="/">Home
@@ -62,7 +68,36 @@ export default class Landing extends Component {
                 </ul>
                 </div>
             </div>
-            </nav>
+            </nav> */}
+
+
+            <Navbar className='navbar navbar-expand-lg navbar-dark py-lg-4' id="mainNav" collapseOnSelect expand="lg" >
+            {/* <Navbar.Brand href="/">BeerShop</Navbar.Brand> */}
+           
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link eventKey={1} onClick={() => {window.location = `/`}}>
+                        Home
+                    </Nav.Link>
+                    
+                    <Nav.Link eventKey={2}  onClick={() => {window.location = `/about`}}>
+                        About
+                    </Nav.Link>
+                    <Nav.Link eventKey={3} onClick={() => {window.location = `/searchResult/s=shop`}}>
+                        Shop
+                    </Nav.Link>
+                    <Nav.Link onClick={() => {window.location = `/store`}}>
+                        Store
+                    </Nav.Link>
+
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+
+
+
+
             <section className="page-section clearfix">
             <div className="container">
                 <div className="intro">
