@@ -163,8 +163,9 @@ export default class Item extends Component {
                             </div>}
                             
                         </div>
-                        {this.state.viewportWidth<=767 && <div>
-                            <div className="text-div">
+                        {this.state.viewportWidth<=767 && 
+                        <div>
+                            <div className="text-div item-container-2">
                                 <div className="small-txt"><span id="heading"> First Brewed: </span> {this.state.hits[0]['first_brewed']}</div>
                                 <div className="small-txt"><span id="heading"> Description: </span> {this.state.hits[0]['description']} </div>
                                 <div className="small-txt"><span id="heading"> ABV: </span> {this.state.hits[0]['abv']} </div>
@@ -174,15 +175,15 @@ export default class Item extends Component {
                                         <li>{i}</li>
                                     )} 
                                 </ul>
-                            </div>
-
-                            <div className="small-txt-div"><span id="heading">Food Pairing: </span> 
+                                <span id="food-pairing">Food Pairing: </span> 
                                 <ul>
                                 {this.state.hits[0]['food_pairing'].map(i =>
                                     <li>{i}</li>
                                     )} 
                                 </ul>
                             </div>
+
+                            
                         </div>}
                     </div> 
                 }
