@@ -18,7 +18,7 @@
 
 .img-container {
     margin-right: 72px;
-    width: 40%;
+    width: auto;
 }
 .img-container img {
     height: 500px;
@@ -78,5 +78,8 @@
     .desc-container .title {
         line-height: 1.1;
         margin-bottom: 8px;
+        font-size: 26px;
     }
+
+
 }
