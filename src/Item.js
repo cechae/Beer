@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './Item.css';
 
+import Footer from './Footer';
+
 
 const API = 'https://api.punkapi.com/v2/beers';
 
@@ -68,7 +70,7 @@ export default class Item extends Component {
 
 
         return (
-            <div className="page-content">
+            <div className="page-content" id="item">
                 {this.state.appIsMounted &&
                     <div>
                         <div className="nav">
@@ -184,6 +186,7 @@ export default class Item extends Component {
                         </div>}
                     </div> 
                 }
+                <Footer />
             </div> // page-content div
         )
         

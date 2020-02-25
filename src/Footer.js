@@ -39,12 +39,11 @@ export default function Footer() {
 
   return (
     <div className={classes.root}>
-      <footer className={classes.footer}>
-        <Container maxWidth="sm">
-          <Typography variant="body1">Follow BeerShop here</Typography>
-          <Copyright />
-        </Container>
-      </footer>
+      <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">Copyright &copy; BeerShop 2020</p>
+        </div>
+    </footer>
     </div>
   );
 }

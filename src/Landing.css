@@ -1,10 +1,25 @@
 
+body, h4 {
+    
+    font-family: 'Zilla Slab', serif;
+}
+.site-heading {
+    font-family: 'Zilla Slab', serif;
+}
 .top-container {
     padding: 0;
+}
+.about-container {
+
+    height: 80vh;
 }
 
 .search-bar .form-control {
     display: inline-block;
+}
+.link-bold {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 800;
 }
 
 .content-box {
@@ -18,16 +33,28 @@
     object-fit: contain;
 }
 
-.desc-box {
+.site-heading .site-heading-lower {
+    font-size: 4rem;
+    text-transform: none;
+    font-weight: 100;
+    line-height: 4rem;
 }
+
 .desc-box h4 {
-    font-size: 16px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 .single-container {
+    background-color: rgba(240, 240, 240, 0.7);
+
+    border-radius: 15px;
+    border: 1px solid navajowhite;
+    color: black;
     display: flex;
     padding: 4% 2%;
     width: 330px;
     margin-right: 24px;
+    margin-bottom: 1rem;
 }
 
 .img-box {

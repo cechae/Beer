@@ -11,13 +11,20 @@
 
 }
 .num-result .badge {
-    margin-left: 8px;
-    margin-top: 8px;
+        margin-left: 8px;
+        margin-top: 8px;
+        padding: 16px;
+        font-size: 1rem;
 }
 #logo {
+    color: #fff;
     background: none !important;
     border: none;
-    color: #212529;
+    padding: 0;
+}
+#logo h4 {
+    font-size: 2rem;
+    margin-bottom: 0;
 }
 .content-box .single-container:hover {
     
@@ -60,6 +67,15 @@
     background-image: none;
     color: #c45500;
     border-color: #e77600;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: .8rem;
+    padding-left: .8rem;
+}
+.navbar-light .navbar-nav .nav-link {
+    font-size: 1.4rem;
+    color: rgba(0,0,0,.5);
 }
 
 @media (max-width: 767px) { 
