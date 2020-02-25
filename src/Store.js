@@ -78,7 +78,7 @@ const Store = () => {
                 <h2 class="section-heading mb-4">
                   <span class="section-heading-lower">About Our BeerShop</span>
                 </h2>
-                <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich beer in various regions of America. </p>
+                <p>Founded in 1987 by the Beer bros, our establishment has been serving up rich beer in various regions of America. </p>
                 <p class="mb-0">We guarantee that you will fall in <em>love</em> with our beers the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>
                         
                 </div>

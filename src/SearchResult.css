@@ -75,7 +75,6 @@
 }
 .navbar-light .navbar-nav .nav-link {
     font-size: 1.4rem;
-    color: rgba(0,0,0,.5);
 }
 
 @media (max-width: 767px) { 
@@ -103,7 +102,34 @@
         margin: 8px 4px;
     }
     
+    .cta {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .cta .cta-inner {
+        padding: 2rem 1.5rem;
+    }
+
+    .btn-xl {
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 
 
+    .section-heading .section-heading-lower {
+        font-size: 2rem;
+    }
+    .single-container {
+        width: auto;
+        padding: 1.5rem;
+    }
+    .single-container .desc-box p {
+        line-height: 1.5;
+    }
 
 }
