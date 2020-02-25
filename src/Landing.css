@@ -21,6 +21,19 @@ body, h4 {
     margin: 0 auto;
     
 }
+#item .item-container-2 {
+    border-top: 1px solid darkgray;
+    background-color: rgba(240, 240, 240, 0.7);
+    border-radius: 15px;
+    border: 1px solid navajowhite;
+    color: black;
+    display: block;
+    padding: 4% 4%;
+    margin: 4% 5%;
+
+}
+
+
 
 .search-bar .form-control {
     display: inline-block;
@@ -147,6 +160,10 @@ body, h4 {
 @media (max-width: 767px) {
     .carousel-caption {
         top: 30%;
+    }
+    #food-pairing {
+        font-size:14px;
+        font-weight: 700;
     }
     .carousel-caption p {
         margin-bottom: 0;
