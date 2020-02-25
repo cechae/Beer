@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from './Header';
+
+import Footer from './Footer';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Badge from 'react-bootstrap/Badge';
@@ -26,10 +28,7 @@ class SearchResult extends React.Component {
 
     }
 
-
-
     handlePageClick = data => {
-        console.log(data.selected)
         let selected = data.selected;
         let offset = Math.ceil(selected * this.state.limit);
         this.setState({ offset: offset }, () => {
@@ -185,6 +184,7 @@ class SearchResult extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         )
     }

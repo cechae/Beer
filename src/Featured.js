@@ -13,8 +13,8 @@ export default class Featured extends Component {
                 </div>
                 <div className="flexbox" style={{display:'flex'}}>
                     <div className="img-container">
-                        <img alt="featured-img" src={require("./image/featured.jpg")} />
-    
+                        {/* <img alt="featured-img" src={require("./image/featured.jpg")} />
+     */}
                     </div>
                     <div className="text-container">
                         <div className="text-box">
