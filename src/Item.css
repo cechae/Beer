@@ -46,11 +46,14 @@
 .text-div ul {
     margin-bottom: 0;
 }
+#item .desc-container .text-div, #item .desc-container .small-txt {
+    font-size: 1.25rem;
+}
 @media (max-width: 767px) {
     .img-container img {
         height: 200px;
     }
-    .text-div ul {
+    #item .desc-container .text-div, #item .desc-container .small-txt {
         font-size: 14px;
     }
     .img-container {
@@ -66,7 +69,6 @@
         font-size: 20px;
     }
     .small-txt, .small-txt-div {
-        font-size: 14px;
         padding: 0;
     }
     .text-div {
