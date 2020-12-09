@@ -32,7 +32,22 @@ export default class ImageSlider extends Component {
                                 <div className="dark-filter">
                                     <h2>20% OFF SITEWIDE</h2>
                                     <p>Celebrate the season with 20% off all online orders.</p>
-                                    {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
+                                    <Button variant="warning" onClick={() => this.goToSearchResult()}>Shop Now</Button>
+                                </div>
+                            
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                            className="d-block w-100"
+                            src={require("./image/carousel-4.jpg")}
+                            alt="Third slide"
+                            />
+
+                            <Carousel.Caption>
+                                <div className="dark-filter">
+                                    <h2>COME AND SEE US</h2>
+                                    <p>At BeerDotCom, we present the most delicious beers alongside a curated selection of snacks, ingredients and accessories. </p>
                                     <Button variant="warning" onClick={() => this.goToSearchResult()}>Shop Now</Button>
                                 </div>
                             
@@ -41,13 +56,17 @@ export default class ImageSlider extends Component {
                         {/* <Carousel.Item>
                             <img
                             className="d-block w-100"
-                            src={require("./image/halloween.jpg")}
+                            src={require("./image/carousel-3.jpg")}
                             alt="Third slide"
                             />
 
                             <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <div className="dark-filter">
+                                    <h2>20% OFF SITEWIDE</h2>
+                                    <p>Celebrate the season with 20% off all online orders.</p>
+                                    <Button variant="warning" onClick={() => this.goToSearchResult()}>Shop Now</Button>
+                                </div>
+                            
                             </Carousel.Caption>
                         </Carousel.Item> */}
                     </Carousel>
