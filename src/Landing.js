@@ -40,8 +40,7 @@ export default class Landing extends Component {
             
 
 
-            <Navbar className='flex-right navbar ' id="mainNav" collapseOnSelect expand="md" >
-                {/* <Navbar.Brand href="/">BeerShop</Navbar.Brand> */}
+            <Navbar className='flex-left navbar ' id="mainNav" collapseOnSelect expand="md" >
             
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

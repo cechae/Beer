@@ -6,6 +6,9 @@
 
     height: 80vh;
 } 
+#mainNav .logo-btn {
+    text-transform: none;
+}
 body {
     background-image: none;
 }
@@ -56,6 +59,7 @@ body {
 }
 .block.btn {
     display: flex;
+    padding-left: 0;
 }
 .block.btn button {
     flex: 1;
@@ -115,9 +119,16 @@ body {
     
 }
 .content-box img {
-    width: 100px;
-    max-height: 200px;
     object-fit: contain;
+    max-height: 196px;
+    width: 50px;
+    min-height: 196px;
+    /* width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #000;
+    padding-top: 70%;  */
 }
 
 .site-heading .site-heading-lower {
@@ -128,24 +139,32 @@ body {
 }
 
 .desc-box h4 {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     font-weight: bold;
+    font-family: sans-serif;
 }
 .single-container {
     background-color: rgba(240, 240, 240, 0.7);
-
+    justify-content: center;
     border-radius: 15px;
     border: 1px solid navajowhite;
     color: black;
     display: flex;
-    padding: 4% 2%;
-    width: 330px;
+    padding: 4% 4%;
+    width: auto;
     margin-right: 24px;
     margin-bottom: 1rem;
 }
-
 .img-box {
-    padding-right: 1rem;
+    display: flex;
+    
+    /* padding-right: 1rem; */
+    justify-content: center;
+    width: 25%;
+}
+.single-container .desc-box {
+    width: 75%;
+
 }
 
 .img-slider .carousel-item img {
@@ -155,17 +174,22 @@ body {
     max-height: 810px;
     min-height: 300px;
 }
+.search-bar form a {
+    background-color: #ffd500;
+}
 
 .search-bar-container {
     display: flex;
-    padding: 1rem 0;
+    padding: 0;
 }
 .logo {
     padding: 0 5%;
 }
 .search-bar {
     flex: 1;
-    padding: 0 15% 0 0;
+    padding: 0 0 0 0;
+    border:1px solid #808080;
+    border-radius: 5px;
 }
 .carousel-caption {
     top: 44%;
@@ -220,8 +244,54 @@ body {
 .searchIcon {
     font-size: 32px;
     line-height: 1.2 !important;
-    margin-left: 1rem;
+    padding: 5px 10px;
+    color: #000;
+    transition: scale 0.4s ease;
 }
+.search-bar-container .form-control {
+    height: auto;
+}
+.searchIcon:hover {
+    transform: scale(1.1);
+}
+@media (min-width: 1420px) {
+    .w-100 {
+        width: 100vw!important;
+    }
+}
+
+
+@media (min-width: 769px) {
+    .navbar-expand-md .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+@media (max-width: 900px) {
+    .result-container .item-container ul li {
+        width: 100%;
+    }
+    .img-box {
+        justify-content: flex-start;
+    }
+}
+@media (max-width: 990px ) {
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .carousel-caption h2 {
+        font-size: 1.6rem;
+    }
+    .carousel-caption p, .carousel-caption button  {
+        font-size: 0.9rem;
+    }
+    .carousel-caption {
+        right: 5%;
+        left: 5%;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar-light .navbar-toggler {
         color: #fff;
@@ -270,9 +340,7 @@ body {
     .carousel-caption h2 {
         margin-bottom: 16px;
     }
-    .search-bar {
-        padding: 0 7% 0 0;
-    }
+    
     .flexbox .img-container {
         margin-right: 0;
         margin-left: 0;
@@ -285,7 +353,7 @@ body {
         flex-direction: column;
     }
     .content-box img {
-        width: 80px;
+        
         max-height: 160px;
     }
     .featured .img-container img {
@@ -295,36 +363,8 @@ body {
     }
     
 }
-@media (min-width: 769px) {
-    .navbar-expand-md .navbar-nav {
-        flex-direction: column;
-    }
-    
-}
 
-@media (max-width: 990px ) {
-    .flex-container {
-        display: flex;
-        flex-direction: column;
-    }
-    .carousel-caption h2 {
-        font-size: 1.6rem;
-    }
-    .carousel-caption p, .carousel-caption button  {
-        font-size: 0.9rem;
-    }
-    .carousel-caption {
-        right: 5%;
-        left: 5%;
-    }
-    
 
-}
-@media (min-width: 1420px) {
-    .w-100 {
-        width: 100vw!important;
-    }
-}
 @media (max-width: 500px) {
     .carousel-caption h2 {
         font-size: 1.4rem;
@@ -342,6 +382,19 @@ body {
     .carousel-indicators {
         display: none;
     }
-    
-    
+    .cta {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .cta .cta-inner {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .section-heading .section-heading-lower {
+        font-size: 2rem;
+    }
 }

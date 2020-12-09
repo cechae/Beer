@@ -41,7 +41,7 @@ export default function Footer() {
     <div className={classes.root}>
       <footer class="footer text-faded text-center py-5">
         <div class="container">
-            <p class="m-0 small">Copyright &copy; BeerShop 2020</p>
+            <p class="m-0 small">Copyright &copy; BeerDotCom 2020</p>
         </div>
     </footer>
     </div>
